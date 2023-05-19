@@ -10,9 +10,9 @@ const Task = ({ taskObj, onComplete }) => {
   const deadline = new Date(taskObj.deadline);
   const timer = differenceInDays(deadline, new Date()) <= 3;
   return (
-    <div className="task">
+    <div className="bg-white p-6 rounded leading-normal mt-4 shadow-md">
       <h3>{taskObj.title}</h3>
-      <div className="deadline">
+      <div className="text-xs pt1">
         son teslim:{" "}
         <span className={timer ? "bg-[#ffd9d4]" : "bg-[#d2d5fd]"}>
           {deadlineFunc}
@@ -21,7 +21,10 @@ const Task = ({ taskObj, onComplete }) => {
       <p>{taskObj.description}</p>
       <div>
         {taskObj.people.map((p) => (
-          <span className="pill" key={p}>
+          <span
+            className="inline-block py-1 px-3 mr-1 mb-1.5 text-sm border border-solid border-gray-200 rounded-full"
+            key={p}
+          >
             {p}
           </span>
         ))}
